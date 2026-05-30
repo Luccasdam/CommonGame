@@ -13,4 +13,7 @@ UCLASS(Abstract)
 class COMMONGAME_API ACG_PlayerController : public APlayerController
 {
 	GENERATED_BODY()
+	
+protected:
+	virtual void BeginPlay() override;
 };
