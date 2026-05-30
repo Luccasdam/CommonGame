@@ -4,9 +4,20 @@
 
 #include "CoreMinimal.h"
 #include "Subsystems/GameInstanceSubsystem.h"
+#include "UI/Widgets/CG_UI_W_ActivatableWidget.h"
 #include "CG_UI_Subsystem.generated.h"
 
+struct FGameplayTag;
 class UCG_UI_W_RootLayout;
+class UCG_UI_W_ActivatableWidget;
+
+
+enum class EAsyncWidgetPushState : uint8
+{
+	OnCreatedBeforePush,
+	AfterPush
+};
+
 
 /**
  * 
@@ -22,6 +33,8 @@ public:
 	
 	UFUNCTION(BlueprintCallable, Category="CommonGame|UI|Subsystem")
 	void RegisterRootLayoutWidget(UCG_UI_W_RootLayout* InRootLayoutWidget);
+	
+	void PushWidgetToLayerStackAsync(const FGameplayTag& InLayerTag, TSoftClassPtr<UCG_UI_W_ActivatableWidget> InWidgetClass, TFunction<void(EAsyncWidgetPushState, UCG_UI_W_ActivatableWidget*)> AsyncPushCallback) const;
 	
 	
 private:

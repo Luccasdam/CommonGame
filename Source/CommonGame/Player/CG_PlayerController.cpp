@@ -19,6 +19,9 @@ void ACG_PlayerController::BeginPlay()
 		
 		// Create and Assign the Root Layout Widget into the UI Subsystem
 		UCG_UI_Subsystem* UISubsystem = UCG_UI_Subsystem::Get(this);
-		UISubsystem->RegisterRootLayoutWidget(CreateWidget<UCG_UI_W_RootLayout>(this, UISettings->RootLayoutWidgetClass));
+		UCG_UI_W_RootLayout* RootLayoutWidget = CreateWidget<UCG_UI_W_RootLayout>(this, UISettings->RootLayoutWidgetClass);
+		
+		UISubsystem->RegisterRootLayoutWidget(RootLayoutWidget);
+		RootLayoutWidget->AddToViewport();
 	}
 }
