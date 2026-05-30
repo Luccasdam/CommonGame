@@ -1,7 +1,7 @@
 // Copyright Luccas de Avila Machado. All rights reserved.
 
 
-#include "CommonGame/UI/Widgets/CG_UI_W_RootLayout.h"
+#include "UI/Widgets/CG_UI_W_RootLayout.h"
 
 
 UCommonActivatableWidgetContainerBase* UCG_UI_W_RootLayout::FindWidgetStackByLayerTag(const FGameplayTag& InLayerTag)

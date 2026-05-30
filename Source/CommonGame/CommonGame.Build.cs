@@ -7,6 +7,8 @@ public class CommonGame : ModuleRules
 	public CommonGame(ReadOnlyTargetRules Target) : base(Target)
 	{
 		PCHUsage = PCHUsageMode.UseExplicitOrSharedPCHs;
+		
+		PublicIncludePaths.Add("CommonGame");
 	
 		PublicDependencyModuleNames.AddRange(new string[]
 		{
