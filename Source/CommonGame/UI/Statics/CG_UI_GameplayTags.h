@@ -22,6 +22,7 @@ namespace CG
 			namespace Screen
 			{
 				COMMONGAME_API UE_DECLARE_GAMEPLAY_TAG_EXTERN(Entry)
+				COMMONGAME_API UE_DECLARE_GAMEPLAY_TAG_EXTERN(MainMenu)
 			}
 		}
 	}

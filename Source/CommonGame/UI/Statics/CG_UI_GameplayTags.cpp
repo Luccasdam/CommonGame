@@ -21,6 +21,7 @@ namespace CG
 			namespace Screen
 			{
 				UE_DEFINE_GAMEPLAY_TAG(Entry, "UI.Screen.Entry")
+				UE_DEFINE_GAMEPLAY_TAG(MainMenu, "UI.Screen.MainMenu")
 			}
 		}
 	}
