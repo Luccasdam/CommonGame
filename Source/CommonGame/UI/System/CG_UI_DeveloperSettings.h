@@ -4,9 +4,12 @@
 
 #include "CoreMinimal.h"
 #include "Engine/DeveloperSettings.h"
+#include "GameplayTagContainer.h"
 #include "CG_UI_DeveloperSettings.generated.h"
 
 class UCG_UI_W_RootLayout;
+class UCG_UI_W_ActivatableWidget;
+
 
 /**
  * 
@@ -20,4 +23,7 @@ class COMMONGAME_API UCG_UI_DeveloperSettings : public UDeveloperSettings
 public:
 	UPROPERTY(EditAnywhere, Config, Category="Widgets")
 	TSubclassOf<UCG_UI_W_RootLayout> RootLayoutWidgetClass;
+	
+	UPROPERTY(EditAnywhere, Config, Category="Widgets", meta=(ForceInlineRow, Categories="UI.Screen"))
+	TMap<FGameplayTag, TSoftClassPtr<UCG_UI_W_ActivatableWidget>> ScreenList;
 };

@@ -17,6 +17,11 @@ namespace CG
 				UE_DEFINE_GAMEPLAY_TAG(GameHUD, "UI.Layer.GameHUD")
 				UE_DEFINE_GAMEPLAY_TAG(Frontend, "UI.Layer.Frontend")
 			}
+
+			namespace Screen
+			{
+				UE_DEFINE_GAMEPLAY_TAG(Entry, "UI.Screen.Entry")
+			}
 		}
 	}
 }
