@@ -2,8 +2,12 @@
 
 
 #include "CG_PlayerController.h"
+
+#include "Game/CG_WorldSettings.h"
+#include "UI/Async/CG_UI_AsyncPushWidgetToStack.h"
 #include "UI/System/CG_UI_Subsystem.h"
 #include "UI/System/CG_UI_DeveloperSettings.h"
+#include "UI/System/CG_UI_FunctionLibrary.h"
 #include "UI/Widgets/CG_UI_W_RootLayout.h"
 
 
@@ -23,5 +27,22 @@ void ACG_PlayerController::BeginPlay()
 		
 		UISubsystem->RegisterRootLayoutWidget(RootLayoutWidget);
 		RootLayoutWidget->AddToViewport();
+		
+		
+		if (ACG_WorldSettings* WorldSettings = Cast<ACG_WorldSettings>(GetWorldSettings()))
+		{
+			if (WorldSettings->GetScreenTag().IsValid())
+			{
+				check(WorldSettings->GetLayerTag().IsValid())
+				UCG_UI_AsyncPushWidgetToStack* AsyncPush = UCG_UI_AsyncPushWidgetToStack::PushWidgetToStack(
+					this,
+					this,
+					UCG_UI_FunctionLibrary::GetWidgetScreenByTag(WorldSettings->GetScreenTag()),
+					WorldSettings->GetLayerTag()
+				);
+				
+				AsyncPush->Activate();
+			}
+		}
 	}
 }
