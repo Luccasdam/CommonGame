@@ -11,7 +11,8 @@
 			"AdditionalDependencies": [
 				"CommonUI",
 				"DeveloperSettings",
-				"Engine"
+				"Engine",
+				"ModelViewViewModel"
 			]
 		}
 	],
@@ -25,6 +26,10 @@
 		},
 		{
 			"Name": "CommonUI",
+			"Enabled": true
+		},
+		{
+			"Name": "ModelViewViewModelPreview",
 			"Enabled": true
 		}
 	]
