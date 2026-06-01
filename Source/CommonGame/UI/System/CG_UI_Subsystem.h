@@ -10,6 +10,7 @@
 struct FGameplayTag;
 class UCG_UI_W_RootLayout;
 class UCG_UI_W_ActivatableWidget;
+class UMVVMViewModelBase;
 
 
 enum class EAsyncWidgetPushState : uint8
@@ -37,7 +38,18 @@ public:
 	void PushWidgetToLayerStackAsync(const FGameplayTag& InLayerTag, TSoftClassPtr<UCG_UI_W_ActivatableWidget> InWidgetClass, TFunction<void(EAsyncWidgetPushState, UCG_UI_W_ActivatableWidget*)> AsyncPushCallback) const;
 	
 	
+	// Get the current view model instance.
+	UFUNCTION(BlueprintCallable, Category="CommonGame|UI|Subsystem")
+	UMVVMViewModelBase* GetCurrentViewModel() const { return CurrentViewModel; }
+	
+	// Request a view model, it will fetch an existing one if it exists and matches the desired class otherwise it will create a new instance.
+	UFUNCTION(BlueprintCallable, Category="CommonGame|UI|Subsystem")
+	UMVVMViewModelBase* RequestViewModel(UClass* DesiredViewModelClass);
+	
 private:
 	UPROPERTY(Transient)
 	TObjectPtr<UCG_UI_W_RootLayout> RootLayoutWidget;
+	
+	UPROPERTY(Transient)
+	TObjectPtr<UMVVMViewModelBase> CurrentViewModel;
 };
